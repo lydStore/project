@@ -12,7 +12,7 @@ export default class Footer extends React.Component {
       path: window.location.pathname
     };
   }
-  componentDidMount() {}
+  //切换当前样式
   changeUrl = () => {
     this.setState({
       path: window.location.pathname
