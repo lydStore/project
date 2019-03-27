@@ -1,0 +1,22 @@
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.footer a{
+    display: block;
+    height: .64rem;
+    width: 100%;
+   text-align: center;
+   line-height: .64rem;
+   text-decoration: none;
+    background: #000;
+    font-size: .24rem;
+    color: #fff;
+}
+.footer a.current{
+   background: #ff7200
+}
