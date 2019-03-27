@@ -3,25 +3,33 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Footer.css";
 
-import router from "../../router";
+import menuConfig from "../../router/menuConfig";
 
 export default class Footer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentClass: false
+      path: window.location.pathname
     };
   }
   componentDidMount() {}
+  changeUrl = () => {
+    this.setState({
+      path: window.location.pathname
+    });
+  };
   render() {
     return (
       <div className="footer">
-        {router.map((item, index) => {
+        {menuConfig.map((item, index) => {
           return (
             <Link
+              onClick={this.changeUrl}
               key={index}
               to={item.path}
-              className={item.path == window.location.pathname ? "current" : ""}
+              className={
+                window.location.pathname === item.path ? "current" : ""
+              }
             >
               {item.name}
             </Link>
