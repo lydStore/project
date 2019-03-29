@@ -11,6 +11,7 @@ function setTime(obj) {
         .addClass("current");
     } else {
       time = 60;
+      clearInterval(timer);
       $(obj)
         .text("发送验证码")
         .attr("disabled", false)
