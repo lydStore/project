@@ -102,11 +102,27 @@ function getCookie(name) {
     return null;
   }
 }
-
-function delCookie(name) {
+//删除cookie
+function removeCookie(name) {
   var exp = new Date();
   exp.setTime(exp.getTime() - 1);
   var cval = getCookie(name);
   if (cval != null)
     document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
+}
+
+//showtoast
+function showToast(msg, durication) {
+  durication = isNaN(durication) ? 1.5 * 1000 : durication;
+  let oDiv = document.createElement("div");
+  oDiv.classList.add("toast");
+  oDiv.innerHTML = msg;
+  document.body.appendChild(oDiv);
+  setTimeout(function() {
+    oDiv.style.webkitTransition = "all ease-in .5s 0s";
+    oDiv.style.opacity = "0";
+    setTimeout(function() {
+      document.body.removeChild(oDiv);
+    }, 500);
+  }, durication);
 }
