@@ -1,3 +1,3 @@
-npm i
+1.安装依赖 npm i
 
-npm run dev
+2.启动项目 npm start
