@@ -76,3 +76,36 @@ function aldRequest(uri) {
     "json"
   );
 }
+
+//设置cookie
+function setCookie(name, value) {
+  var Hours = 1;
+  var exp = new Date();
+  exp.setTime(exp.getTime() + Hours * 60 * 1000 * 60);
+  document.cookie =
+    name +
+    "=" +
+    encodeURIComponent(value) +
+    ";expires=" +
+    exp.toGMTString() +
+    ";path=/";
+  return true;
+}
+//读取cookie
+function getCookie(name) {
+  var arr,
+    reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)"); //正则匹配
+  if ((arr = document.cookie.match(reg))) {
+    return unescape(arr[2]);
+  } else {
+    return null;
+  }
+}
+
+function delCookie(name) {
+  var exp = new Date();
+  exp.setTime(exp.getTime() - 1);
+  var cval = getCookie(name);
+  if (cval != null)
+    document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
+}
