@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <ul>
-      <li v-for="(item,index) in dataList" :key = "index">{{item.id}}</li>
+      <li v-for="(item,index) in dataList" :key = "index">{{item.id}}----{{item.name}}---{{item.age}}</li>
     </ul>
   </div>
 </template>
@@ -18,12 +18,11 @@ export default {
     };
   },
   methods: {
-    initList(){
-      getindex().then(res => {
-        this.dataList = res.data;
-      }).catch(error=>{
-        console.log(error)
-      });
+    async initList(){
+     const res = await getindex();
+     if(res.ret==="0"){
+       this.dataList = res.data;
+     }
     }
   },
   created () {

@@ -7,12 +7,12 @@ import QS from "qs";
 // import store from '../store/index'
 
 // 环境的切换
-if (process.env.NODE_ENV == "development") {
+if (process.env.NODE_ENV === "development") {
   axios.defaults.baseURL =
     " https://easy-mock.com/mock/5c9d7add06682d01a7c152a1";
-} else if (process.env.NODE_ENV == "debug") {
+} else if (process.env.NODE_ENV === "debug") {
   axios.defaults.baseURL = "";
-} else if (process.env.NODE_ENV == "production") {
+} else if (process.env.NODE_ENV === "production") {
   axios.defaults.baseURL = "";
 }
 
