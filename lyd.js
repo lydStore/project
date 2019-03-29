@@ -31,7 +31,7 @@ function getQueryName(name) {
   }
 }
 
-//滚动到摸个位置
+//滚动到某个位置
 function scrollToLocal(h, durition) {
   //h int，文档滚动到距离顶部的高度
   durition = isNaN(durition) ? 200 : durition;
