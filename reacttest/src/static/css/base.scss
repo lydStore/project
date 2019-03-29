@@ -1,0 +1,36 @@
+@charset "utf-8";
+//清楚标签默认样式;
+ul,
+li {
+  list-style: none;
+}
+div,
+ul,
+li,
+input,
+button,
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+dl,
+dt,
+dd,
+img,
+span,
+em,
+i {
+  margin: 0;
+  padding: 0;
+}
+input,
+button,
+textarea {
+  outline: none;
+  background: none;
+  border: 0;
+}

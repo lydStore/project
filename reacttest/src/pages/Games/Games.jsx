@@ -1,5 +1,5 @@
 import React from "react";
-import "./Games.css";
+import "./Games.scss";
 import { getindex } from "../../api";
 export default class Games extends React.Component {
   constructor(props) {
@@ -9,23 +9,24 @@ export default class Games extends React.Component {
     };
   }
   //请求数据
-  async initList() {
+  initList = async () => {
     const res = await getindex();
     if (res.ret === "0") {
       this.setState({
         dataList: res.data
       });
     }
-  }
+  };
   //初始化数据
   componentWillMount() {
-    this.initList();
+    // this.initList();
   }
   render() {
     const dataList = this.state.dataList;
     return (
-      <div className="index">
+      <div className="game">
         首页
+        <button onClick={this.initList}>请求数据</button>
         <ul>
           {dataList.map((item, index) => {
             return (

@@ -1,0 +1,20 @@
+.game {
+  font-size: 0.16rem;
+  color: #f00;
+  li {
+    font-size: 0.4rem;
+    color: #000;
+  }
+  button {
+    display: block;
+    background: #ff7200;
+    width: 1.6rem;
+    height: 0.48rem;
+    line-height: 0.48rem;
+    color: #fff;
+    border: 0;
+    border-radius: 4px;
+    font-size: 0.3rem;
+    margin: 0.2rem auto;
+  }
+}
