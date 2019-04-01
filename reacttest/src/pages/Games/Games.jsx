@@ -25,7 +25,7 @@ export default class Games extends React.Component {
     const dataList = this.state.dataList;
     return (
       <div className="game">
-        首页
+        游戏
         <button onClick={this.initList}>请求数据</button>
         <ul>
           {dataList.map((item, index) => {

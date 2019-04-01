@@ -5,7 +5,7 @@ let menuConfig = [
   {
     path: "/", //首页默认加载的页面
     component: Games,
-    name: "首页",
+    name: "游戏",
     exact: true //是否为严格模式
   },
   {
