@@ -20,14 +20,18 @@ export default {
   },
   methods: {
     async initList() {
-      const res = await getindex();
-      if (res.ret === "0") {
-        this.dataList = res.data;
+      try{
+        const res = await getindex();
+        if (res.ret === "0") {
+          this.dataList = res.data;
+        }
+      }catch(error){
+        console.log(error)
       }
     }
   },
   created() {
-    // this.initList();
+    this.initList();
   }
 };
 </script>

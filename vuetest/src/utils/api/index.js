@@ -7,3 +7,6 @@ export const getindex = params => {
 export const getAppInfo = params => {
   return get(`/app/info`, { params: params });
 };
+export const getGameInfo = params => {
+  return post(`/game/info`, { params: params });
+};
