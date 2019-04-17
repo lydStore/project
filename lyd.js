@@ -171,3 +171,41 @@ function getLocalTime(nS) {
     add0(s)
   );
 }
+//点击预览图片
+var swiper = new Swiper(".swiper-container", {
+  zoom: true,
+  width: window.innerWidth,
+  virtual: true,
+  spaceBetween: 20,
+  pagination: {
+    el: ".swiper-pagination",
+    type: "fraction"
+  },
+  on: {
+    click: function() {
+      $("#origin-img").fadeOut("fast");
+      this.virtual.slides.length = 0;
+      this.virtual.cache = [];
+      swiperStatus = false;
+    }
+  }
+});
+$(document).on("click", ".bbs_con_box img", function() {
+  clickIndex = $(this).index();
+  imgs = [];
+  $(this)
+    .parents("p")
+    .find("img")
+    .each(function(key, val) {
+      swiper.virtual.appendSlide(
+        '<div class="swiper-zoom-container"><img src="' + val.src + '" /></div>'
+      );
+    });
+  swiper.slideTo(clickIndex);
+  $("#origin-img").fadeIn("fast");
+  swiperStatus = true;
+});
+$(".n-swiper-back").click(function() {
+  $(".n-swiper").hide();
+  $(".swiper-wrapper").html("");
+});
