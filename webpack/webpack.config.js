@@ -1,5 +1,5 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry:'./src/index.js',
   output:{
@@ -11,18 +11,12 @@ module.exports = {
       new HtmlWebpackPlugin({
           title:'Index',
           filename: 'index.html',
-          template: './src/index.html',
+          template: 'html-withimg-loader!'+path.resolve(__dirname, 'src/index.html'),
           hash: true,
           // minify: {
           //   collapseWhitespace: true //折叠空白区域 也就是压缩代码
           // }
-      }),
-      // new HtmlWebpackPlugin({
-      //   title:'Demo',
-      //   filename: 'demo.html',
-      //   template: './src/demo.html',
-      //   hash: true
-      // }),
+      })
   ],
   module: {
     rules: [
@@ -43,27 +37,10 @@ module.exports = {
           presets: ['env']
         }
       },
-      // {
-      //     test: /\.(jpg|png|gif|svg|jpeg)$/,
-      //     loader: 'url-loader?name=images/[path][hash:8].[name].[ext]',
-      //     // test: /\.(png|jpg|gif|svg)$/,
-      //     // loader: 'url-loader',
-      //     // options: {
-      //     //     name: './images/[name].[ext]',
-      //     //     // limit: 8192
-      //     // }
-      // },
       {
         test: /\.(jpg|png|gif|svg|jpeg)$/,
-        use: ['url-loader']
+        loader: 'url-loader?limit=8192&name=images/[hash:8].[name].[ext]',
       }
-      // {
-      //   test: /\.(png|jpg|gif|svg)$/,
-      //   loader: 'file-loader',
-      //   options: {
-      //       name: 'images/[name].[ext]'
-      //   }
-      // }
     ]
   },
   devServer: {

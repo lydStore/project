@@ -5,6 +5,7 @@
   "main": "webpack.config--old.js",
   "dependencies": {
     "expose-loader": "^0.7.5",
+    "html-withimg-loader": "^0.1.16",
     "jquery": "^3.4.0",
     "webpack": "^4.29.6"
   },
