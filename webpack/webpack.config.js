@@ -13,9 +13,9 @@ module.exports = {
           filename: 'index.html',
           template: 'html-withimg-loader!'+path.resolve(__dirname, 'src/index.html'),
           hash: true,
-          // minify: {
-          //   collapseWhitespace: true //折叠空白区域 也就是压缩代码
-          // }
+          minify: {
+            collapseWhitespace: true //折叠空白区域 也就是压缩代码
+          }
       })
   ],
   module: {
@@ -48,4 +48,4 @@ module.exports = {
     port:7000,
     host:'webpack.com'
  }
-}
+};

@@ -1,2 +1,4 @@
-import './js/main';
+import './js/main.js';
 import './css/common.less';
+
+
