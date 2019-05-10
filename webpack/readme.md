@@ -50,6 +50,21 @@ cnpm install babel-loader babel-core babel-preset-env --save-dev
 
 
 
+启动项目
+
+
+npm install
+
+npm run dev
+
+npm run start
+
+
+
+
+
+
+
 
 
 
