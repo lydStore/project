@@ -1,3 +1,12 @@
+static = {
+  exp: {
+            phone: /^((0\d{2,3}-\d{7,8})|(1\d{10}))$/,
+            idcard: /^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/,
+            email: /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/
+        },
+}
+
+
 //验证码倒计时
 function setTime(obj) {
   var time = 60;
@@ -31,7 +40,18 @@ function getQueryName(name) {
     return null;
   }
 }
-
+function GetRequest() {
+    var url = location.search; //获取url中"?"符后的字串
+    var theRequest = new Object();
+    if (url.indexOf("?") != -1) {
+        var str = url.substr(1);
+        strs = str.split("&");
+        for(var i = 0; i < strs.length; i ++) {
+            theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+        }
+    }
+    return theRequest;
+}
 //滚动到某个位置
 function scrollToLocal(h, durition) {
   //h int，文档滚动到距离顶部的高度
