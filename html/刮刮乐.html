@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+<div id="box">
+    <img src="reform_img.png" style="width: 700px;height: 500px;" />
+    <canvas id="myCanvas" width="700" height="500" style="position: absolute; left: 0px;top: 0px;"></canvas>
+</div>
+</body>
+<script type="text/javascript">
+    var myCanvas = document.getElementById('myCanvas');
+    var context = myCanvas.getContext('2d');
+    //设置一个灰色矩形的画布 将图片盖住
+    context.fillStyle = 'gray';
+    context.fillRect(0, 0, 700, 500);
+
+    myCanvas.onmousedown = function(e) {
+        //获取鼠标按下时鼠标的坐标
+        var X = e.clientX - box.offsetLeft;
+        var Y = e.clientY - box.offsetTop;
+        //绘制起点
+        context.beginPath();
+        context.moveTo(X, Y);
+        myCanvas.onmousemove = function(e) {
+            //移动的时候开始绘制 获取此时的鼠标坐标
+            var x = e.clientX - box.offsetLeft;
+            var y = e.clientY - box.offsetTop;
+            //让绘制区域重合部分显示透明
+            context.globalCompositeOperation = "destination-out";
+
+            context.lineTo(x, y);
+            //修饰一下线条
+            context.lineCap = 'round';
+            context.lineWidth = 30;
+            context.stroke();
+
+            //当刮到一半的时候,显示全图
+            //获取画布上的所有数据
+            var imgData = context.getImageData(0, 0, 700, 500);
+            console.log(imgData);
+            //从图片数据中把像素获取出来
+            var pixels = imgData.data;
+            var num = 0;
+            //被刮的区域显示透明  遍历一下所有色素块 用num存一下有多少个像素显示透明(即被刮区域)
+            for(var i = 0; i < pixels.length; i += 4) {
+                if(pixels[i + 3] == 0) {
+                    num++;
+                }
+            }
+            // //当(被刮区域)超过 百分之多少时 让整个刮刮乐 全部显示
+            // if(num / (pixels.length / 4) > 0.3) {
+            //     myCanvas.style.opacity = 0;
+            // }
+
+        }
+    };
+    //当鼠标抬起时 让移动事件失效
+    myCanvas.onmouseup = function() {
+        myCanvas.onmousemove = null;
+    }
+</script>
+
+</html>
