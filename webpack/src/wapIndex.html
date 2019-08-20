@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>阿拉德之怒</title>
+    <meta name="keywords" content="阿拉德之怒" />
+    <meta name="description" content="阿拉德之怒" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="browsermode" content="application" />
+    <meta name="Cache-Control" content="private" />
+    <script>
+        var getPlantform = function () {
+            var ua = navigator.userAgent.toLowerCase();
+            if ((ua.indexOf("iphone") > -1 || ua.indexOf("ipod") > -1)) {
+                return "iPhone"
+            }
+            if (ua.indexOf("android") > -1) {
+                return "Android"
+            }
+            return "Other"
+        };
+        if (getPlantform() ==='Other') {
+            location.href = location.origin + '/index.html';
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <!--立即下载-->
+    <div class="index-container hide">
+        <a href="javascript:;" class="download-now"></a>
+        <div class="ald-code"><img src="images/ald_code.png" alt=""></div>
+        <div class="award-container">
+            <div class="award-list">
+                <div class="award-con">
+                    <h2>100,000</h2>
+                    <p>勇士预约</p>
+                    <img src="./images/award_bg.png" alt="奖励图标">
+                </div>
+            </div>
+            <div class="award-list">
+                <div class="award-con">
+                    <h2>100,000</h2>
+                    <p>勇士预约</p>
+                    <img src="./images/award_bg.png" alt="奖励图标">
+                </div>
+            </div>
+            <div class="award-list">
+                <div class="award-con">
+                    <h2>100,000</h2>
+                    <p>勇士预约</p>
+                    <img src="./images/award_bg.png" alt="奖励图标">
+                </div>
+            </div>
+            <div class="award-list">
+                <div class="award-con">
+                    <h2>100,000</h2>
+                    <p>勇士预约</p>
+                    <img src="./images/award_bg.png" alt="奖励图标">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--立即预约-->
+    <div class="index-container index-order-container ">
+        <a href="javascript:;" class="download-now order-now-btn"></a>
+        <div class="award-container">
+            <div class="award-list">
+                <div class="award-con">
+                    <h2>100,000</h2>
+                    <p>勇士预约</p>
+                    <img src="./images/award_bg.png" alt="奖励图标">
+                </div>
+            </div>
+            <div class="award-list">
+                <div class="award-con">
+                    <h2>100,000</h2>
+                    <p>勇士预约</p>
+                    <img src="./images/award_bg.png" alt="奖励图标">
+                </div>
+            </div>
+            <div class="award-list">
+                <div class="award-con">
+                    <h2>100,000</h2>
+                    <p>勇士预约</p>
+                    <img src="./images/award_bg.png" alt="奖励图标">
+                </div>
+            </div>
+            <div class="award-list">
+                <div class="award-con">
+                    <h2>100,000</h2>
+                    <p>勇士预约</p>
+                    <img src="./images/award_bg.png" alt="奖励图标">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="occu-container">
+        <div class="o-tab-container">
+            <div class="o-tab-list">
+                <img src="images/m_role1.jpg" class="m-img" alt="">
+                <a href="javascript:;" class="role-video"></a>
+            </div>
+            <div class="o-tab-list hide">
+                <img src="images/m_role2.jpg" class="m-img" alt="">
+                <a href="javascript:;" class="role-video"></a>
+            </div>
+            <div class="o-tab-list hide">
+                <img src="images/m_role3.jpg" class="m-img" alt="">
+                <a href="javascript:;" class="role-video"></a>
+            </div>
+            <div class="o-tab-list hide">
+                <img src="images/m_role4.jpg" class="m-img" alt="">
+                <a href="javascript:;" class="role-video"></a>
+            </div>
+            <div class="o-tab-list hide">
+                <img src="images/m_role5.jpg" class="m-img" alt="">
+                <a href="javascript:;" class="role-video"></a>
+            </div>
+            <div class="o-tab-hd">
+                <div class="o-tab-role hd1 current" data-index="0">
+                    <a href="javascript:;"></a>
+                </div>
+                <div class="o-tab-role hd2" data-index="1">
+                    <a href="javascript:;"></a>
+                </div>
+                <div class="o-tab-role hd3" data-index="2">
+                    <a href="javascript:;"></a>
+                </div>
+                <div class="o-tab-role hd4" data-index="3">
+                    <a href="javascript:;"></a>
+                </div>
+                <div class="o-tab-role hd5" data-index="4">
+                    <a href="javascript:;"></a>
+                </div>
+                <div class="o-tab-role hd6" data-index="5">
+                    <a href="javascript:;"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--预约弹窗-->
+<div class="o-dialog o-dialog-order hide">
+    <div class="o-dialog-content">
+        <a href="javascript:;" class="o-close"></a>
+        <div class="dialog-title">
+            已有<span>888</span>人预约
+        </div>
+        <div class="select-mode">
+            <a href="javascript:;" data-plat="3" class="mode-ios current"></a>
+            <a href="javascript:;" data-plat="2" class="mode-and"></a>
+        </div>
+        <div class="order-form">
+            <ul>
+                <li><input type="text" placeholder="请输入手机号码" class="mobile"></li>
+                <li><input type="tel" placeholder="请输入验证码" class="code"><button class="get-code">获取验证码</button></li>
+            </ul>
+            <a href="javascript:;" class="btn-order order-now"></a>
+        </div>
+    </div>
+</div>
+<!--预约成功弹窗-->
+<div class="o-dialog o-dialog-suc hide">
+    <div class="o-dialog-content">
+        <a href="javascript:;" class="o-close"></a>
+        <div class="dialog-title">
+            第<span>88888</span>位勇士，8月8日首测我们游戏见。
+        </div>
+        <a href="javascript:;" class="btn-order btn-sure"></a>
+    </div>
+</div>
+<!--cdk成功弹窗-->
+<div class="o-dialog o-dialog-cdk hide">
+    <div class="o-dialog-content">
+        <a href="javascript:;" class="o-close"></a>
+        <div class="cdk-container">
+            <span>AJHJKLJKHJHJ</span>
+            <a href="javascript:;" class="btn-copy">复制</a>
+        </div>
+        <a href="javascript:;" class="btn-order btn-sure"></a>
+    </div>
+</div>
+<!--消息弹窗-->
+<div class="o-dialog o-dialog-msg hide">
+    <div class="o-dialog-content">
+        <a href="javascript:;" class="o-close"></a>
+        <div class="dialog-msg">
+            <h2>温馨提示</h2>
+            <span>请输入正确的手机号码</span>
+        </div>
+        <a href="javascript:;" class="btn-order btn-sure"></a>
+    </div>
+</div>
+</body>
+</html>

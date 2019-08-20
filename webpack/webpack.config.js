@@ -1,21 +1,38 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+//
 module.exports = {
-  entry:'./src/index.js',
+  entry:{
+      './js/pc': __dirname + '/src/index.js',
+      './js/wap': __dirname + '/src/wapIndex.js',
+  },
   output:{
    path: path.resolve(__dirname,'dist'),
   //  publicPath: '/src/',
-   filename: 'bundle.js'
+   filename: '[name]_bundle_[hash].js',
   },
   plugins: [
-      new HtmlWebpackPlugin({
-          title:'Index',
-          filename: 'index.html',
-          template: 'html-withimg-loader!'+path.resolve(__dirname, 'src/index.html'),
-          hash: true,
-          minify: {
-            collapseWhitespace: true //折叠空白区域 也就是压缩代码
-          }
+      new CleanWebpackPlugin(),
+      new HtmlWebpackPlugin({ //pc 首页
+              title:'Index',
+              filename: 'index.html',
+              template: 'html-withimg-loader!'+path.resolve(__dirname, 'src/index.html'),
+              hash: true,
+              minify: {
+                collapseWhitespace: true //折叠空白区域
+              },
+              chunks: ['./js/pc']
+      }),
+      new HtmlWebpackPlugin({//pc 手机页面
+              title:'wapIndex',
+              filename: 'wapIndex.html',
+              template: 'html-withimg-loader!'+path.resolve(__dirname, 'src/wapIndex.html'),
+              hash: true,
+              minify: {
+                  collapseWhitespace: true
+              },
+              chunks: ['./js/wap']
       })
   ],
   module: {
@@ -37,15 +54,32 @@ module.exports = {
           presets: ['env']
         }
       },
-      {
-        test: /\.(jpg|png|gif|svg|jpeg)$/,
-        loader: 'url-loader?limit=8192&name=images/[hash:8].[name].[ext]',
-      }
+        {
+            test: /\.(jpg|png|gif|svg|jpeg)$/,
+            loader: 'url-loader?limit=10000&name=images/[name].[hash:7].[ext]'
+        },
+        {
+            test: /\.(jpg|png|gif|svg|jpeg)$/,
+            loader: 'image-webpack-loader',// 压缩图片
+            options: {
+                limit: 10000,
+                name: 'images/[name].[hash:7].[ext]'
+            }
+        }
     ]
   },
   devServer: {
     contentBase: path.join(__dirname, "dist"),
-    port:7000,
-    host:'webpack.com'
+    port:8080,
+    host:'local-adapiv2.srccwl.com',
+    open:true,
+    proxy: {
+      '/api': {
+          target: 'http://adapiv2.srccwl.com',
+          pathRewrite: {'^/api' : ''},
+          changeOrigin: true,     // target是域名的话，需要这个参数，
+          secure: false,          // 设置支持https协议的代理
+      }
+    }
  }
 };

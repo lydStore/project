@@ -15,6 +15,11 @@ a{
   color: @baseColor;
   text-decoration: none;
 }
+a, button, input, select, img, label, li,div {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  outline: medium none;
+}
 i,em{
   font-style: normal
 }
@@ -122,6 +127,10 @@ input,button,select,textarea{
 .fs(@size:16px,@color:#fff){
   font-size: @size;
   color: @color;
+}
+.lh(@height:16px){
+  height: @height;
+  line-height: @height;
 }
 .ells(){
   .css3(text-overflow,ellipsis);

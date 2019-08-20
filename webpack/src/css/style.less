@@ -1,0 +1,331 @@
+@charset "utf-8";
+@import './base.less';
+
+.container{
+  .m-img{
+    display: block;
+    width: 100%;
+  }
+  .index-container{
+    background: url("../images/m_index_bg.jpg") no-repeat center top;
+    background-size: 100% auto;
+    min-height: 20rem;
+    overflow: hidden;
+  }
+  .download-now{
+    display: block;
+    width: 5rem;
+    height: 2rem;
+    margin:116% auto 0;
+    background: url("../images/m_download_now.png") no-repeat center;
+    background-size: 100% auto;
+  }
+  .ald-code{
+    text-align: center;
+    img{
+      width: 2.5rem
+    }
+  }
+  .award-container {
+    width:90%;
+    margin: .4rem auto 0;
+    padding-top: .5rem;
+    background: url("../images/award_line.png") no-repeat center top;
+    background-size: 100% auto;
+    overflow: hidden;
+    .flex();
+    .css3(justify-content,space-between);
+    .award-list {
+      width: 22.5%;
+      min-height: 2.5rem;
+      background: url("../images/award_border.png") no-repeat center top;
+      background-size: 100% auto;
+      .award-con {
+        width: 100%;
+        background: url("../images/award_bg.png") no-repeat center top;
+        background-size: 100% auto;
+        text-align: center;
+
+        h2 {
+          .fs(.375rem, #43241c);
+          padding:.35rem 0 0;
+          font-weight: bold;
+        }
+
+        p {
+          .fs(.3rem, #43241c);
+          font-weight: bold;
+        }
+        img {
+          width: .5rem;
+          margin-top: .2rem;
+        }
+      }
+    }
+  }
+  .index-order-container{
+    .download-now{
+      margin: 130% auto 0;
+      background: url(../images/m_order_btn.png) no-repeat center;
+      background-size: 100% auto;
+    }
+  }
+}
+
+.occu-container{
+  .pr();
+  .o-tab-list{
+    .role-video{
+      .pa();
+      right: 0;
+      top: 4rem;
+      height: 4rem;
+      width: 3rem;
+    }
+  }
+  .o-tab-hd{
+    overflow: hidden;
+    .pa();
+    bottom: 1rem;
+    left: 0;
+    width: 90%;
+    padding: 0 5%;
+    .flex();
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .o-tab-role{
+      width: 33.3%;
+      height:2.5rem;
+      background: url("../images/hd1.png") no-repeat center;
+      background-size: 100% auto;
+      &.hd1{
+        background: url("../images/hd1.png") no-repeat center;
+        background-size: 100% auto;
+        &.current{
+          transform: scale(1.1);
+          background: url("../images/hd1_on.png") no-repeat center;
+          background-size: 100% auto;
+        }
+      }
+      &.hd2{
+        background: url("../images/hd2.png") no-repeat center;
+        background-size: 100% auto;
+        &.current{
+          transform: scale(1.1);
+          background: url("../images/hd2_on.png") no-repeat center;
+          background-size: 100% auto;
+        }
+      }
+      &.hd3{
+        background: url("../images/hd3.png") no-repeat center;
+        background-size: 100% auto;
+        &.current{
+          transform: scale(1.1);
+          background: url("../images/hd3_on.png") no-repeat center;
+          background-size: 100% auto;
+        }
+      }
+      &.hd4{
+        background: url("../images/hd4.png") no-repeat center;
+        background-size: 100% auto;
+        &.current{
+          transform: scale(1.1);
+          background: url("../images/hd4_on.png") no-repeat center;
+          background-size: 100% auto;
+        }
+      }
+      &.hd5{
+        background: url("../images/hd5.png") no-repeat center;
+        background-size: 100% auto;
+        &.current{
+          transform: scale(1.1);
+          background: url("../images/hd5_on.png") no-repeat center;
+          background-size: 100% auto;
+        }
+      }
+      &.hd6{
+        background: url("../images/hd6.png") no-repeat center;
+        background-size: 100% auto;
+      }
+      a{
+        display: block;
+        height: 67%;
+        width: 83%;
+        .css3(transform,skewX(-20deg));
+        margin: 16% 0 0 12%;
+      }
+    }
+  }
+}
+
+//dialog
+.o-dialog{
+  .pf();
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(12,15,23,.8);
+  .o-dialog-content{
+    .pa();
+    left: 50%;
+    top: 50%;
+    width: 90%;
+    padding: .7rem 0;
+    .css3(transform,translate(-50%,-50%));
+    background: url("../images/dialog_bg.png") no-repeat center;
+    background-size: 100% auto;
+    .o-close{
+      .pa();
+      right: 0;
+      top: -1rem;
+      display: block;
+      width: .8rem;
+      height: .8rem;
+      background: url("../images/close.png") no-repeat center;
+      background-size: 100% auto;
+    }
+    .dialog-title{
+      padding-top:1.6rem;
+      background: url("../images/order_title.png") no-repeat center .35rem;
+      background-size: 100% auto;
+      .fs(.425rem,#f4d7a9);
+      font-weight: bold;
+      text-align: center;
+    }
+    .select-mode{
+      font-size: 0;
+      text-align: center;
+      padding-top:.5rem;
+      a{
+        display: inline-block;
+        width: 2.5rem;
+        height: 1.1rem;
+        margin: 0 1rem;
+        &.mode-ios{
+          background: url("../images/ios_btn.png") no-repeat center;
+          background-size: 100% auto;
+        }
+        &.mode-and{
+          background: url("../images/and_btn.png") no-repeat center;
+          background-size: 100% auto;
+        }
+        &.current{
+          &.mode-ios{
+            background: url("../images/ios_btn_on.png") no-repeat center;
+            background-size: 100% auto;
+          }
+          &.mode-and{
+            background: url("../images/and_btn_on.png") no-repeat center;
+            background-size: 100% auto;
+          }
+        }
+      }
+    }
+    .order-form{
+      padding: 0 .5rem;
+      li{
+        padding-top: .5rem;
+        font-size: 0;
+        input{
+          width: 100%;
+          padding: .3rem 0;
+          text-indent: .3rem;
+          border: 1px solid #CCB986;
+          background: rgba(255,255,255,.1);
+          .fs(.325rem,#b9b9b9);
+          vertical-align: middle;
+          &.code{
+            width: 60%;
+          }
+        }
+        button{
+          display: inline-block;
+          vertical-align: middle;
+          margin-left: 5%;
+          height:1rem;
+          width:34%;
+          background: url("../images/btn_bg.png") no-repeat center;
+          background-size: 100% auto;
+          .fs(.325rem,#6D5438);
+          font-weight: bold;
+          cursor: pointer;
+        }
+      }
+    }
+    .btn-order{
+      display: block;
+      width:60%;
+      height:1.2rem;
+      margin: .8rem auto 0;
+      background: url("../images/dialog_btn_order.png") no-repeat center;
+      background-size: 100% auto;
+      &.btn-sure{
+        margin: .6rem auto 0;
+        background: url("../images/dialog_btn2.png") no-repeat center;
+        background-size: auto 100%;
+      }
+    }
+  }
+  &.o-dialog-suc,&.o-dialog-msg{
+    .o-dialog-content{
+      background: url("../images/dialog_bg_suc.png") no-repeat center;
+      background-size: 100% auto;
+    }
+    .dialog-title{
+      padding-top: 1.6rem;
+      background: url("../images/title_suc.png") no-repeat center .6rem;
+      background-size: 60% auto;
+    }
+  }
+  &.o-dialog-cdk{
+    .o-dialog-content{
+      background: url("../images/dialog_cdk.png") no-repeat center;
+      background-size: 100% auto;
+    }
+    .cdk-container{
+      padding-top:16%;
+      span{
+        display:inline-block;
+        padding:.3rem 0;
+        min-height: .5rem;
+        width:45%;
+        margin: 0 .3rem 0 22%;
+        text-indent: .3rem;
+        border: 1px solid #CCB986;
+        background: rgba(255,255,255,.1);
+        .fs(.325rem,#efd0a3);
+        vertical-align: middle;
+      }
+
+      .btn-copy{
+        .lh(1rem);
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+        width:20%;
+        background: url("../images/btn_bg.png") no-repeat center;
+        background-size: auto 100%;
+        .fs(.375rem,#6D5438);
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+  }
+  &.o-dialog-msg{
+    .dialog-msg{
+      padding-top: .2rem;
+      text-align: center;
+      h2{
+        .fs(.8rem,#B48F5D);
+        font-weight: bold;
+        padding-bottom: .3rem;
+        letter-spacing: .1rem;
+      }
+      span{
+        .fs(.425rem,#efd0a3)
+      }
+    }
+
+  }
+}
