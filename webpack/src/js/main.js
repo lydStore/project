@@ -1,6 +1,5 @@
 require("expose-loader?$!jquery");
 import Fullpage from  'fullpage.js';
-console.log(process.env.NODE_ENV);
 let staticData = {
      appId:316,
      baseUrl:process.env.NODE_ENV === 'development'?'/api':'http://adapiv2.srccwl.com',
@@ -25,14 +24,18 @@ let methods = {
             index = hdList.attr('data-index');
         if(index==="5")return;
         hdList.addClass('current').siblings().removeClass('current');
-        bdList.eq(index).show().siblings('.o-tab-list').hide();
+        if(staticData.client()===4){
+            bdList.eq(index).show().siblings('.o-tab-list').hide();
+        }else{
+            bdList.eq(index).stop().fadeIn().siblings('.o-tab-list').stop().hide();
+        }
     },
     yellowTab:function (obj) {
         let hdList = $(obj),
             bdList = $('.y-tab-list'),
             index = hdList.index();
         hdList.addClass('current').siblings().removeClass('current');
-        bdList.eq(index).show().siblings('.y-tab-list').hide();
+        bdList.eq(index).stop().fadeIn().siblings('.y-tab-list').stop().hide();
     },
     dialog:{
         toast:function (msg) {
@@ -132,8 +135,7 @@ let methods = {
 window.methods = methods;
 $(function () {
     new Fullpage('#fullpage', {
-        autoScrolling:true,
-        scrollHorizontally: true,
+        loopBottom: false
     });
     //tab
     $('.o-tab-hd a').click(function () {
@@ -151,6 +153,7 @@ $(function () {
     //预约弹窗
     $('.order-now-btn').click(function () {
         $('.o-dialog-order').show();
+        methods.request.getNum();
     });
     //关闭弹窗
     $('.o-close,.btn-sure').click(function () {

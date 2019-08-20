@@ -15,20 +15,23 @@ module.exports = {
   plugins: [
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({ //pc 首页
-              title:'Index',
+              title:'阿拉德之怒',
               filename: 'index.html',
               template: 'html-withimg-loader!'+path.resolve(__dirname, 'src/index.html'),
               hash: true,
+              favicon: path.resolve(__dirname, 'src/images/favicon.ico'),
               minify: {
                 collapseWhitespace: true //折叠空白区域
               },
               chunks: ['./js/pc']
+
       }),
-      new HtmlWebpackPlugin({//pc 手机页面
-              title:'wapIndex',
+      new HtmlWebpackPlugin({//手机 首页
+              title:'阿拉德之怒',
               filename: 'wapIndex.html',
               template: 'html-withimg-loader!'+path.resolve(__dirname, 'src/wapIndex.html'),
               hash: true,
+              favicon: path.resolve(__dirname, 'src/images/favicon.ico'),
               minify: {
                   collapseWhitespace: true
               },
@@ -39,11 +42,15 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader!postcss-loader'
+        loader: 'style-loader!css-loader!postcss-loader',
+          exclude: path.resolve(__dirname, 'node_modules'),    //匹配时忽略这个目录，提高打包速度
+          include: path.resolve(__dirname, 'src'),             // 匹配时查找的范围
       },
       {
         test: /\.less$/,
-        loader: 'style-loader!css-loader!postcss-loader!less-loader'  // 从右到左执行，所以注意顺序
+        loader: 'style-loader!css-loader!postcss-loader!less-loader',  // 从右到左执行，所以注意顺序
+          exclude: path.resolve(__dirname, 'node_modules'),    //匹配时忽略这个目录，提高打包速度
+          include: path.resolve(__dirname, 'src'),             // 匹配时查找的范围
       },
       {
         test: /\.js$/,               // 匹配js文件
