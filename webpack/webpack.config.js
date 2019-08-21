@@ -1,19 +1,35 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+// 引入css 单独打包插件
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+// Create multiple instances
+const extractCSS = new ExtractTextPlugin('css/[name]_[hash].css');
+const extractLESS = new ExtractTextPlugin('css/[name]_[hash].css');
 //
 module.exports = {
   entry:{
-      './js/pc': __dirname + '/src/index.js',
-      './js/wap': __dirname + '/src/wapIndex.js',
+      pc: __dirname + '/src/js/index.js',
+      wap: __dirname + '/src/js/wapIndex.js',
   },
   output:{
    path: path.resolve(__dirname,'dist'),
-  //  publicPath: '/src/',
-   filename: '[name]_bundle_[hash].js',
+   // publicPath: '/',
+   filename: 'js/[name]_bundle_[hash].js',
   },
   plugins: [
+      extractCSS,
+      extractLESS,
       new CleanWebpackPlugin(),
+      new OptimizeCssAssetsPlugin({
+          assetNameRegExp: /\.optimize\.css$/g,
+          cssProcessor: require('cssnano'),
+          cssProcessorPluginOptions: {
+              preset: ['default', { discardComments: { removeAll: true } }],
+          },
+          canPrint: true
+      }),
       new HtmlWebpackPlugin({ //pc 首页
               title:'阿拉德之怒',
               filename: 'index.html',
@@ -23,7 +39,7 @@ module.exports = {
               minify: {
                 collapseWhitespace: true //折叠空白区域
               },
-              chunks: ['./js/pc']
+              chunks: ['pc']
 
       }),
       new HtmlWebpackPlugin({//手机 首页
@@ -35,22 +51,37 @@ module.exports = {
               minify: {
                   collapseWhitespace: true
               },
-              chunks: ['./js/wap']
+              chunks: ['wap']
       })
   ],
   module: {
     rules: [
       {
-        test: /\.css$/,
-        loader: 'style-loader!css-loader!postcss-loader',
-          exclude: path.resolve(__dirname, 'node_modules'),    //匹配时忽略这个目录，提高打包速度
-          include: path.resolve(__dirname, 'src'),             // 匹配时查找的范围
+          test:/\.css$/,
+          // loader: 'style-loader!css-loader!postcss-loader',
+          include: path.resolve(__dirname, 'src'),// 匹配时查找的范围
+          use: extractCSS.extract({
+              fallback: 'style-loader',
+              publicPath: '../',
+              use: [
+                  'css-loader',
+                  'postcss-loader'
+              ]
+          })
       },
       {
-        test: /\.less$/,
-        loader: 'style-loader!css-loader!postcss-loader!less-loader',  // 从右到左执行，所以注意顺序
-          exclude: path.resolve(__dirname, 'node_modules'),    //匹配时忽略这个目录，提高打包速度
+          test: /\.less$/i,
+          // loader: 'style-loader!css-loader!postcss-loader!less-loader',  // 从右到左执行，所以注意顺序
           include: path.resolve(__dirname, 'src'),             // 匹配时查找的范围
+          use:extractLESS.extract({
+              fallback: 'style-loader',
+              publicPath: '../',
+              use: [
+                  'css-loader',
+                  'postcss-loader',
+                  'less-loader'
+              ]
+          })
       },
       {
         test: /\.js$/,               // 匹配js文件
