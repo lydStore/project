@@ -32,8 +32,8 @@ module.exports = {
       }),
       new HtmlWebpackPlugin({ //pc 首页
               title:'阿拉德之怒',
-              filename: 'index.html',
-              template: 'html-withimg-loader!'+path.resolve(__dirname, 'src/index.html'),
+              filename: 'order_index.html',
+              template: 'html-withimg-loader!'+path.resolve(__dirname, 'src/order_index.html'),
               hash: true,
               favicon: path.resolve(__dirname, 'src/images/favicon.ico'),
               minify: {
@@ -44,14 +44,47 @@ module.exports = {
       }),
       new HtmlWebpackPlugin({//手机 首页
               title:'阿拉德之怒',
-              filename: 'wapIndex.html',
-              template: 'html-withimg-loader!'+path.resolve(__dirname, 'src/wapIndex.html'),
+              filename: 'order_wapIndex.html',
+              template: 'html-withimg-loader!'+path.resolve(__dirname, 'src/order_wapIndex.html'),
               hash: true,
               favicon: path.resolve(__dirname, 'src/images/favicon.ico'),
               minify: {
                   collapseWhitespace: true
               },
               chunks: ['wap']
+      }),
+      new HtmlWebpackPlugin({//手机 下载首页
+          title:'阿拉德之怒',
+          filename: 'wapIndex.html',
+          template: 'html-withimg-loader!'+path.resolve(__dirname, 'src/wapIndex.html'),
+          hash: true,
+          favicon: path.resolve(__dirname, 'src/images/favicon.ico'),
+          minify: {
+              collapseWhitespace: true
+          },
+          chunks: ['wap']
+      }),
+      new HtmlWebpackPlugin({//pc 下载首页
+          title:'阿拉德之怒',
+          filename: 'index.html',
+          template: 'html-withimg-loader!'+path.resolve(__dirname, 'src/index.html'),
+          hash: true,
+          favicon: path.resolve(__dirname, 'src/images/favicon.ico'),
+          minify: {
+              collapseWhitespace: true
+          },
+          chunks: ['pc']
+      }),
+      new HtmlWebpackPlugin({//pc 黄色版本首页
+          title:'阿拉德之怒',
+          filename: 'yellow_index.html',
+          template: 'html-withimg-loader!'+path.resolve(__dirname, 'src/yellow_index.html'),
+          hash: true,
+          favicon: path.resolve(__dirname, 'src/images/favicon.ico'),
+          minify: {
+              collapseWhitespace: true
+          },
+          chunks: ['pc']
       })
   ],
   module: {

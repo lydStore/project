@@ -40,6 +40,43 @@
 }
 
 .container1 {
+  .p1-role{
+    .pa();
+    height: 100%;
+    min-width: 600px;
+    &.p1-role1{
+      top:0;
+      left: 0;
+      width: 40%;
+      background: url("../images/p1_role1.png") no-repeat center top;
+      background-size: 100% auto;
+      z-index: 1;
+    }
+    &.p1-role2{
+      top:0;
+      right: 0;
+      width: 40%;
+      background: url("../images/p1_role2.png") no-repeat center top;
+      background-size: 100% auto;
+      z-index: 2;
+    }
+    &.p1-role3{
+      bottom:0;
+      left: 0;
+      width: 50%;
+      background: url("../images/p1_role3.png") no-repeat center bottom;
+      background-size: 100% auto;
+      z-index: 3;
+    }
+    &.p1-role4{
+      bottom:0;
+      right:0;
+      width: 40%;
+      background: url("../images/p1_role4.png") no-repeat center bottom;
+      background-size: 100% auto;
+      z-index: 4;
+    }
+  }
   .share-contaienr{
     .pa();
     right: 40px;
@@ -71,6 +108,8 @@
   }
   .slogan-container {
     padding-top: 155px;
+    .pr();
+    z-index: 5;
     .o-logo {
       display: block;
       width: 437px;
@@ -97,6 +136,10 @@
       background: url("../images/order_btn.png") no-repeat center;
       background-size: 100% auto;
       padding: 26px 0;
+      .css3(transition,all .2s ease 0s);
+      &:hover{
+        .css3(transform,scale(1.1))
+      }
       &.download-now{
         background: url("../images/download_now.png") no-repeat center;
         background-size: 100% auto;
@@ -111,6 +154,16 @@
       background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#FFE2B7), to(#9E7744));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      &.download-code{
+        height: 0;
+        overflow: hidden;
+        .css3(transition,all .25s linear 0s);
+        margin-bottom: 60px;
+        &.current{
+          height: 130px;
+          margin-bottom: 0;
+        }
+      }
       img{
         width: 120px;
       }
@@ -212,6 +265,7 @@
       margin-right: -24px;
       background: url("../images/hd1.png") no-repeat center;
       background-size: 100% auto;
+      .css3(transition,all .25s linear 0s);
       &.hd1{
         background: url("../images/hd1.png") no-repeat center;
         background-size: 100% auto;
@@ -274,7 +328,8 @@
 
 .container3{
   .pr();
-  background: #ffb22e;
+  background: url("../images/yellow_bg.jpg") no-repeat center top;
+  background-size: 100% auto;
   .y-tab-container{
     height: 100%;
     .y-tab-bd{
@@ -357,6 +412,7 @@
         background-size: 100% auto;
         min-height:150px;
         cursor: pointer;
+        .css3(transition,all .25s linear 0s);
         &.y-tab1{
           background-position: 0 0;
           &:hover,&.current{

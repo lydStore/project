@@ -35,7 +35,7 @@ let methods = {
             bdList = $('.y-tab-list'),
             index = hdList.index();
         hdList.addClass('current').siblings().removeClass('current');
-        bdList.eq(index).stop().fadeIn().siblings('.y-tab-list').stop().hide();
+        bdList.eq(index).stop().fadeIn(200).siblings('.y-tab-list').stop().hide();
     },
     dialog:{
         toast:function (msg) {
